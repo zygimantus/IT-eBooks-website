@@ -7,5 +7,7 @@
             "email": "zygimantus@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "nategood/httpful": "^0.2.20"
+    }
 }
