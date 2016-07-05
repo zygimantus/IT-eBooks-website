@@ -11,7 +11,3 @@ before_script:
 - sh -c "composer install --dev --no-progress"
 
 script: cd application/tests;phpunit
-
-branches:
-  only:
-- develop
