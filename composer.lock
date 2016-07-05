@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3514b10281ccf793356db411e4b832b8",
-    "content-hash": "d4f96c786bc15318b8ae918da097a752",
+    "hash": "8a71e1821077163152e0fe4e95660fef",
+    "content-hash": "475ad73b07aee4e94d6dbc52a0f2de0e",
     "packages": [
         {
             "name": "nategood/httpful",
@@ -58,7 +58,55 @@
             "time": "2015-10-26 16:11:30"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "kenjis/ci-phpunit-test",
+            "version": "v0.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenjis/ci-phpunit-test.git",
+                "reference": "00447300447a43b1da84de73125737d34ff3b360"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenjis/ci-phpunit-test/zipball/00447300447a43b1da84de73125737d34ff3b360",
+                "reference": "00447300447a43b1da84de73125737d34ff3b360",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "replace": {
+                "nikic/php-parser": "2.0.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kenji Suzuki",
+                    "homepage": "https://github.com/kenjis"
+                }
+            ],
+            "description": "An easier way to use PHPUnit with CodeIgniter 3.0",
+            "homepage": "http://kenjis.github.io/ci-phpunit-test/",
+            "keywords": [
+                "codeigniter",
+                "monkey patch",
+                "phpunit",
+                "test",
+                "unit testing"
+            ],
+            "time": "2016-06-11 09:06:08"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
