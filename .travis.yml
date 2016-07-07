@@ -11,3 +11,6 @@ before_script:
 - sh -c "composer install --dev --no-progress"
 
 script: cd application/tests;phpunit
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
