@@ -16,7 +16,7 @@
     <script src="<?php echo base_url('assets/js/bootstrap-table.min.js') ?>"></script>
 </head>
 <body>
-<table id="table">
+<table id="table" data-row-style="rowStyle">
   <thead>
     <tr>
       <th data-field="ID">Name</th>
@@ -33,7 +33,16 @@
       data: somedata.Books
   });
   function imageFormatter() {
-      return '<img src=\"' + arguments[0] + '\">';
+      return '<img src=\"' + arguments[0] + '\" width="100">';
+  }
+  function rowStyle(row, index) {
+    var classes = ['active', 'success', 'info', 'warning', 'danger'];
+    if (index % 2 === 0 && index / 2 < classes.length) {
+        return {
+            classes: classes[index / 2]
+        };
+    }
+    return {};
   }
 </script>
 </body>
