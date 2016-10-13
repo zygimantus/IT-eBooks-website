@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <title>Index Page</title>
+    <title>Index Table</title>
 
     <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 
@@ -17,28 +17,24 @@
 </head>
 <body>
 <table id="table">
+  <thead>
+    <tr>
+      <th data-field="ID">Name</th>
+      <th data-field="Title">Name</th>
+      <th data-field="Description">Name</th>
+      <th data-field="isbn">ISBN</th>
+      <th data-field="Image" data-formatter="imageFormatter">Image</th>
+    </tr>
+  </thead>
 </table>
 <script type="text/javascript">
-var somedata = <?php echo ($somedata); ?>;
-$('#table').bootstrapTable({
-    columns: [{
-        field: 'ID',
-        title: 'ID'
-    }, {
-        field: 'Title',
-        title: 'Title'
-    }, {
-        field: 'Description',
-        title: 'Description'
-    }, {
-        field: 'isbn',
-        title: 'ISBN'
-    }, {
-        field: 'Image',
-        title: 'Image'
-    }],
-    data: somedata.Books
-});
+  var somedata = <?php echo ($somedata); ?>;
+  $('#table').bootstrapTable({
+      data: somedata.Books
+  });
+  function imageFormatter() {
+      return '<img src=\"' + arguments[0] + '\">';
+  }
 </script>
 </body>
 </html>
