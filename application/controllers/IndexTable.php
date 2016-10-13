@@ -9,6 +9,6 @@ class IndexTable extends CI_Controller {
 
 		$data['somedata'] = $response;
 
-		$this->load->view('index', $data);
+		$this->load->view('indexTable', $data);
 	}
 }
