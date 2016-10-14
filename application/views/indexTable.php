@@ -16,34 +16,37 @@
     <script src="<?php echo base_url('assets/js/bootstrap-table.min.js') ?>"></script>
 </head>
 <body>
-<table id="table" data-row-style="rowStyle">
-  <thead>
-    <tr>
-      <th data-field="ID">Name</th>
-      <th data-field="Title">Name</th>
-      <th data-field="Description">Name</th>
-      <th data-field="isbn">ISBN</th>
-      <th data-field="Image" data-formatter="imageFormatter">Image</th>
-    </tr>
-  </thead>
-</table>
-<script type="text/javascript">
-  var somedata = <?php echo ($somedata); ?>;
-  $('#table').bootstrapTable({
-      data: somedata.Books
-  });
-  function imageFormatter() {
-      return '<img src=\"' + arguments[0] + '\" width="100">';
-  }
-  function rowStyle(row, index) {
-    var classes = ['active', 'success', 'info', 'warning', 'danger'];
-    if (index % 2 === 0 && index / 2 < classes.length) {
-        return {
-            classes: classes[index / 2]
-        };
-    }
-    return {};
-  }
-</script>
+  <div class="container">
+    <h1>Index Table</h1>
+    <table id="table" data-row-style="rowStyle">
+      <thead>
+        <tr>
+          <th data-field="ID">Name</th>
+          <th data-field="Title">Name</th>
+          <th data-field="Description">Name</th>
+          <th data-field="isbn">ISBN</th>
+          <th data-field="Image" data-formatter="imageFormatter">Image</th>
+        </tr>
+      </thead>
+    </table>
+    <script type="text/javascript">
+      var somedata = <?php echo ($somedata); ?>;
+      $('#table').bootstrapTable({
+          data: somedata.Books
+      });
+      function imageFormatter() {
+          return '<img src=\"' + arguments[0] + '\" width="150">';
+      }
+      function rowStyle(row, index) {
+        var classes = ['active', 'success', 'info', 'warning', 'danger'];
+        if (index % 2 === 0 && index / 2 < classes.length) {
+            return {
+                classes: classes[index / 2]
+            };
+        }
+        return {};
+      }
+    </script>
+  </div>
 </body>
 </html>
