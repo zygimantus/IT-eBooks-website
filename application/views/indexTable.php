@@ -38,8 +38,8 @@
           return '<img src=\"' + arguments[0] + '\" width="150">';
       }
       function isbnFormatter() {
-          return '<a href=\"https://openlibrary.org/api/books?bibkeys=ISBN:'
-            + arguments[0] + '&callback=mycallback\">Open Library</a>';
+          return '<a target="_blank" href=\"https://openlibrary.org/api/books?bibkeys=ISBN:'
+            + arguments[0] + '&callback=mycallback\">Open Library</a><br /><a target="_blank" href=\"http://xisbn.worldcat.org/webservices/xid/isbn/' + arguments[0] + '?method=getEditions&format=json&fl=*\">WorldCat</a>';
       }
       function rowStyle(row, index) {
         var classes = ['active', 'success', 'info', 'warning', 'danger'];
