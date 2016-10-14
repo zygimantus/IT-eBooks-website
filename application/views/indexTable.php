@@ -21,10 +21,10 @@
     <table id="table" data-row-style="rowStyle">
       <thead>
         <tr>
-          <th data-field="ID">Name</th>
+          <th data-field="ID">ID</th>
           <th data-field="Title">Name</th>
           <th data-field="Description">Name</th>
-          <th data-field="isbn">ISBN</th>
+          <th data-field="isbn" data-formatter="isbnFormatter">ISBN</th>
           <th data-field="Image" data-formatter="imageFormatter">Image</th>
         </tr>
       </thead>
@@ -36,6 +36,10 @@
       });
       function imageFormatter() {
           return '<img src=\"' + arguments[0] + '\" width="150">';
+      }
+      function isbnFormatter() {
+          return '<a href=\"https://openlibrary.org/api/books?bibkeys=ISBN:'
+            + arguments[0] + '&callback=mycallback\">Open Library</a>';
       }
       function rowStyle(row, index) {
         var classes = ['active', 'success', 'info', 'warning', 'danger'];
