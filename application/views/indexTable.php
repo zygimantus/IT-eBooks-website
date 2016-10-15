@@ -19,9 +19,11 @@
   <div class="container">
     <h1>Index Table</h1>
     <?php
-    echo form_open('IndexTable');
+    $attributes = array('class' => 'navbar-form navbar-left', 'role' => 'search');
+    echo form_open('IndexTable', $attributes);
     echo form_input(array('name'=>'search'));
-    echo form_submit('search_submit','Submit');
+    $attributes = array('class' => 'btn btn-primary');
+    echo form_submit('search_submit','Submit', $attributes);
      ?>
     <table id="table" data-row-style="rowStyle">
       <thead>
@@ -43,8 +45,8 @@
           return '<img src=\"' + arguments[0] + '\" width="150">';
       }
       function isbnFormatter() {
-          return '<a target="_blank" href=\"https://openlibrary.org/api/books?bibkeys=ISBN:'
-            + arguments[0] + '&callback=mycallback\">Open Library</a><br /><a target="_blank" href=\"http://xisbn.worldcat.org/webservices/xid/isbn/' + arguments[0] + '?method=getEditions&format=json&fl=*\">WorldCat</a>';
+          return '<a target="_blank" class="test" href=\"https://openlibrary.org/api/books?bibkeys=ISBN:'
+            + arguments[0] + '&callback=mycallback\">Open Library</a><br /><a target="_blank" data-toggle="popover" href=\"http://xisbn.worldcat.org/webservices/xid/isbn/' + arguments[0] + '?method=getEditions&format=json&fl=*\">WorldCat</a>';
       }
       function rowStyle(row, index) {
         var classes = ['active', 'success', 'info', 'warning', 'danger'];
@@ -55,6 +57,27 @@
         }
         return {};
       }
+      $(".test").hover(function(){
+         var link = $(this).context.href;
+
+              $.ajax({
+                  'type': 'GET',
+                  'url': link,
+                   dataType: 'jsonp',
+                  'success': function (data) {
+                        // alert(JSON.stringify(data));
+                  }});
+        }, function(){
+          //This function is for unhover.
+       });
+       $(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+      trigger: 'hover',
+        title: '<h3 class="custom-title"><span class="glyphicon glyphicon-info-sign"></span> Popover Info</h3>',
+        content : "<p>This is a <em>simple example</em> demonstrating how to insert HTML code inside <mark><strong>Bootstrap popover</strong></mark>.</p>",
+        html: true
+    });
+});
     </script>
   </div>
 </body>
