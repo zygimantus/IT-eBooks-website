@@ -18,6 +18,11 @@
 <body>
   <div class="container">
     <h1>Index Table</h1>
+    <?php
+    echo form_open('IndexTable');
+    echo form_input(array('name'=>'search'));
+    echo form_submit('search_submit','Submit');
+     ?>
     <table id="table" data-row-style="rowStyle">
       <thead>
         <tr>
